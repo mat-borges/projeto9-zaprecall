@@ -5,19 +5,12 @@ import almostIcon from '../assets/img/help-circle-icon.svg';
 import zapIcon from '../assets/img/checkmark-circle-icon.svg';
 import turnCard from '../assets/img/setinha.png';
 import { useState } from 'react';
+import Actions from './Actions';
 
 export default function DeckMain(props) {
-	const { deck, setDeck, cardsDone, setCardsDone } = props;
+	const { deck, setDeck, cardsDone, setCardsDone, zappedCards, setZappedCards } = props;
 	const [clickedCard, setClickedCard] = useState('');
 	const [answer, setAnswer] = useState('');
-	const [zappedCards, setZappedCards] = useState(0);
-
-	const errorColor =
-		'invert(29%) sepia(86%) saturate(2812%) hue-rotate(342deg) brightness(96%) contrast(106%)';
-	const almostColor =
-		'invert(67%) sepia(48%) saturate(1583%) hue-rotate(334deg) brightness(98%) contrast(106%)';
-	const zapColor =
-		'invert(55%) sepia(10%) saturate(3367%) hue-rotate(72deg) brightness(106%) contrast(90%)';
 
 	function flashcardStatus(flashcard, status, color) {
 		const newDeck = deck;
@@ -68,30 +61,16 @@ export default function DeckMain(props) {
 			return (
 				<FlashcardAberto key={i}>
 					<p>{flashcard.answer}</p>
-					<Actions>
-						<ErrorButton
-							onClick={() => {
-								flashcardStatus(flashcard, 'error', errorColor);
-								setCardsDone(cardsDone + 1);
-							}}>
-							Não lembrei
-						</ErrorButton>
-						<AlmostButton
-							onClick={() => {
-								flashcardStatus(flashcard, 'almost', almostColor);
-								setCardsDone(cardsDone + 1);
-							}}>
-							Quase não lembrei
-						</AlmostButton>
-						<ZapButton
-							onClick={() => {
-								flashcardStatus(flashcard, 'zap', zapColor);
-								setZappedCards(zappedCards + 1);
-								setCardsDone(cardsDone + 1);
-							}}>
-							Zap!
-						</ZapButton>
-					</Actions>
+					<Actions
+						flashcardStatus={flashcardStatus}
+						flashcard={flashcard}
+						setCardsDone={setCardsDone}
+						cardsDone={cardsDone}
+						zappedCards={zappedCards}
+						setZappedCards={setZappedCards}
+						setClickedCard={setClickedCard}
+						setAnswer={setAnswer}
+					/>
 				</FlashcardAberto>
 			);
 		}
@@ -161,45 +140,4 @@ const Icon = styled.img`
 	filter: ${(props) => props.color};
 	width: 23px;
 	height: 23px;
-`;
-
-const Actions = styled.div`
-	display: flex;
-	width: 100%;
-	justify-content: space-around;
-	align-items: center;
-	gap: 10px;
-	margin-top: 15px;
-`;
-
-const Button = styled.button`
-	border: transparent;
-	width: 100%;
-	height: 40px;
-	background-color: green;
-	color: white;
-	font-size: 12px;
-	font-weight: 700;
-	border-radius: 5px;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	outline: none;
-
-	&:hover {
-		filter: brightness(0.7);
-	}
-`;
-
-const ErrorButton = styled(Button)`
-	background-color: #ff3030;
-`;
-
-const AlmostButton = styled(Button)`
-	background-color: #ff922e;
-`;
-
-const ZapButton = styled(Button)`
-	background-color: #2fbe34;
 `;

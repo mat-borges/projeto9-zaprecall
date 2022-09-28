@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 
-export default function DeckHeader({ logo }) {
+export default function DeckHeader(props) {
+	const { logo, setDisplay, setGoal, setDeck } = props;
+	function homePage() {
+		setDisplay('home');
+		setGoal('');
+		setDeck([]);
+	}
 	return (
-		<Header>
+		<Header onClick={homePage}>
 			<img src={logo} alt="logoZap" />
 			<h1>ZapRecall</h1>
 		</Header>
@@ -24,6 +30,7 @@ const Header = styled.div`
 	font-family: 'Righteous', sans-serif;
 	z-index: 1;
 	background-color: #fb6b6b;
+	cursor: pointer;
 	img {
 		width: 52px;
 		height: 60px;

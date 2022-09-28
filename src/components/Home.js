@@ -1,19 +1,46 @@
 import styled from 'styled-components';
+import { options } from '../assets/lists/decks';
 
 export default function Home(props) {
-	const { logo, display, setDisplay, goal, setGoal } = props;
+	const { logo, display, setDisplay, goal, setGoal, deck, setDeck, decks } = props;
+
+	function showGoals() {
+		if (deck[0] === '' || deck[0] === undefined || deck[0] === null) {
+			return (
+				<select defaultValue={decks[0]} onChange={(e) => setDeck(decks[e.target.value])}>
+					{decks.map((e, i) => (
+						<option key={i} value={i}>
+							{options[i].label}
+						</option>
+					))}
+				</select>
+			);
+		} else {
+			return (
+				<input
+					type="number"
+					placeholder="Digite sua meta de zaps..."
+					value={goal}
+					onChange={(e) => setGoal(e.target.value)}
+				/>
+			);
+		}
+	}
+
+	function checkGoals() {
+		if (goal > 0 && goal <= deck.length) {
+			setDisplay('recall');
+		} else {
+			alert(`Sua meta deve ser um número entre 1 e ${deck.length}`);
+		}
+	}
 
 	return (
 		<HomeDiv display={display === 'home' ? 'flex' : 'none'}>
 			<img src={logo} alt="logoZap" />
 			<h1>ZapRecall</h1>
-			<input
-				type="number"
-				placeholder="Digite sua meta de zaps..."
-				value={goal}
-				onChange={(e) => setGoal(e.target.value)}
-			/>
-			<button onClick={() => setDisplay('recall')}>Iniciar Recall!!</button>
+			{showGoals()}
+			<button onClick={checkGoals}>Iniciar Recall!!</button>
 		</HomeDiv>
 	);
 }
@@ -50,7 +77,8 @@ const HomeDiv = styled.div`
 			background-color: #cea2a0;
 		}
 	}
-	input[type='number'] {
+	input[type='number'],
+	select {
 		border: transparent;
 		outline: none;
 		border-radius: 5px;
