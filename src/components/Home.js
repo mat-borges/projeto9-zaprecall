@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
 export default function Home(props) {
-	const { logo } = props;
+	const { logo, display, setDisplay, goal, setGoal } = props;
+
 	return (
-		<HomeDiv>
+		<HomeDiv display={display === 'home' ? 'flex' : 'none'}>
 			<img src={logo} alt="logoZap" />
 			<h1>ZapRecall</h1>
-			<input type="number" placeholder="Digite sua meta de zaps..." />
-			<button>Iniciar Recall!!</button>
+			<input
+				type="number"
+				placeholder="Digite sua meta de zaps..."
+				value={goal}
+				onChange={(e) => setGoal(e.target.value)}
+			/>
+			<button onClick={() => setDisplay('recall')}>Iniciar Recall!!</button>
 		</HomeDiv>
 	);
 }
@@ -17,7 +23,7 @@ const HomeDiv = styled.div`
 	height: 100%;
 	top: 0;
 	left: 0;
-	display: flex;
+	display: ${(props) => props.display};
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
@@ -62,5 +68,4 @@ const HomeDiv = styled.div`
 		width: 136px;
 		height: 161px;
 	}
-	display: none;
 `;
