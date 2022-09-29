@@ -73,7 +73,7 @@ const Flashcard = styled.div`
 	align-items: center;
 	background-color: white;
 	border-radius: 5px;
-	margin: 13px 0px;
+	margin: 10px 0px;
 	padding: 10px 10px;
 	cursor: pointer;
 	font-family: 'Recursive', cursive;

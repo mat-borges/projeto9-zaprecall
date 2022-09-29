@@ -54,4 +54,7 @@ export default function Deck(props) {
 const DeckDiv = styled.div`
 	display: ${(props) => props.display};
 	flex-direction: column;
+	align-items: center;
 `;
+
+

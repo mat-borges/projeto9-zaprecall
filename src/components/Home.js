@@ -40,7 +40,10 @@ export default function Home(props) {
 			<img src={logo} alt="logoZap" />
 			<h1>ZapRecall</h1>
 			{showGoals()}
-			<button onClick={checkGoals} disabled={goal === '' ? true : false}>
+			<button
+				onClick={checkGoals}
+				disabled={goal === '' ? true : false}
+				title={goal === '' ? 'Você precisa inserir uma meta' : 'Iniciar Recall!'}>
 				Iniciar Recall!!
 			</button>
 		</HomeDiv>

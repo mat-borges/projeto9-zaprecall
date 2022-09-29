@@ -61,10 +61,13 @@ export default function DeckMain(props) {
 }
 
 const Main = styled.div`
+	display: flex;
+	flex-direction: column;
 	max-height: 70vh;
 	overflow-y: auto;
 	&::-webkit-scrollbar {
 		display: none;
 	}
+	align-items: center;
 	margin: 70px 0 80px 0;
 `;
