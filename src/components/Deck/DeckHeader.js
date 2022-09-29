@@ -92,6 +92,7 @@ const Button = styled.button`
 	@media (max-width: 680px) {
 		position: absolute;
 		width: 40px;
+		left:15px;
 		img{
 			position: relative;
 			left: 9px
