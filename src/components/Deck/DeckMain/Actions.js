@@ -68,8 +68,8 @@ export default function Actions(props) {
 }
 
 const ActionsDiv = styled.div`
-	display: flex;
 	width: 100%;
+	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	gap: 10px;
@@ -77,20 +77,18 @@ const ActionsDiv = styled.div`
 `;
 
 const Button = styled.button`
+	display: ${(props) => props.display};
+	justify-content: center;
+	align-items: center;
 	border: transparent;
 	width: 100%;
 	height: 40px;
-	background-color: green;
 	color: white;
 	font-size: 12px;
 	font-weight: 700;
 	border-radius: 5px;
 	cursor: pointer;
-	display: ${(props) => props.display};
-	justify-content: center;
-	align-items: center;
 	outline: none;
-
 	&:hover {
 		filter: brightness(0.7);
 	}

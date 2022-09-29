@@ -86,17 +86,13 @@ const QuestionId = styled.p`
 `;
 
 const FlashcardAberto = styled(Flashcard)`
+	box-sizing: border-box;
 	min-height: 130px;
 	height: fit-content;
-	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	align-items: flex-start;
 	background-color: #ffffd4;
 	cursor: default;
-	padding: 20px 10px;
-	box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-	border-radius: 5px;
 	div {
 		width: 100%;
 		display: flex;

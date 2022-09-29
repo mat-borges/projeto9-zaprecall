@@ -61,8 +61,6 @@ export default function DeckMain(props) {
 }
 
 const Main = styled.div`
-	display: flex;
-	flex-direction: column;
 	max-height: 70vh;
 	overflow-y: auto;
 	&::-webkit-scrollbar {
