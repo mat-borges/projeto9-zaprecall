@@ -41,7 +41,7 @@ export default function DeckHeader(props) {
 
 const Header = styled.div`
 	position: fixed;
-	height: 100px;
+	height: 80px;
 	top: 0;
 	left: 0;
 	right: 0;

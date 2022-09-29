@@ -68,4 +68,7 @@ const Main = styled.div`
 	}
 	align-items: center;
 	margin: 70px 0 80px 0;
+	@media (max-height: 650px) {
+		max-height: 55vh;
+	}
 `;
