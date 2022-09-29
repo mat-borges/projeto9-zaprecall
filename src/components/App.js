@@ -3,7 +3,7 @@ import GlobalStyle from '../style/GlobalStyle.js';
 import logoG from '../assets/img/logo.png';
 import Home from './Home.js';
 import Deck from './Deck.js';
-import decks from '../assets/lists/decks';
+
 
 export default function App() {
 	const [display, setDisplay] = useState('home');
@@ -20,7 +20,6 @@ export default function App() {
 				setDisplay={setDisplay}
 				goal={goal}
 				setGoal={setGoal}
-				decks={decks}
 				deck={deck}
 				setDeck={setDeck}
 			/>

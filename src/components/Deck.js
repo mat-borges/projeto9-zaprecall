@@ -9,6 +9,8 @@ export default function Deck(props) {
 		props;
 
 	const [cardsDone, setCardsDone] = useState(0);
+	const [clickedCard, setClickedCard] = useState('');
+	const [answer, setAnswer] = useState('');
 
 	return (
 		<DeckDiv display={display === 'recall' ? 'flex' : 'none'}>
@@ -18,14 +20,19 @@ export default function Deck(props) {
 				goal={goal}
 				setGoal={setGoal}
 				setDeck={setDeck}
+				setClickedCard={setClickedCard}
+				setAnswer={setAnswer}
 			/>
 			<DeckMain
 				deck={deck}
-				setDeck={setDeck}
 				cardsDone={cardsDone}
 				setCardsDone={setCardsDone}
 				zappedCards={zappedCards}
 				setZappedCards={setZappedCards}
+				clickedCard={clickedCard}
+				setClickedCard={setClickedCard}
+				answer={answer}
+				setAnswer={setAnswer}
 			/>
 			<DeckFooter deck={deck} cardsDone={cardsDone} goal={goal} zappedCards={zappedCards} />
 		</DeckDiv>

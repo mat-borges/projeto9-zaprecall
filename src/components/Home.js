@@ -1,13 +1,14 @@
 import styled from 'styled-components';
-import { options } from '../assets/lists/decks';
+import { options } from '../assets/lists/decks.js';
+import decks from '../assets/lists/decks.js';
 
 export default function Home(props) {
-	const { logo, display, setDisplay, goal, setGoal, deck, setDeck, decks } = props;
+	const { logo, display, setDisplay, goal, setGoal, deck, setDeck } = props;
 
 	function showGoals() {
 		if (deck[0] === '' || deck[0] === undefined || deck[0] === null) {
 			return (
-				<select defaultValue={decks[0]} onChange={(e) => setDeck(decks[e.target.value])}>
+				<select defaultValue={[...decks[0]]} onChange={(e) => setDeck([...decks[e.target.value]])}>
 					{decks.map((e, i) => (
 						<option key={i} value={i}>
 							{options[i].label}
@@ -40,7 +41,9 @@ export default function Home(props) {
 			<img src={logo} alt="logoZap" />
 			<h1>ZapRecall</h1>
 			{showGoals()}
-			<button onClick={checkGoals}>Iniciar Recall!!</button>
+			<button onClick={checkGoals} disabled={goal === '' ? true : false}>
+				Iniciar Recall!!
+			</button>
 		</HomeDiv>
 	);
 }

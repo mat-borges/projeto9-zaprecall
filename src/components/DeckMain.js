@@ -4,21 +4,26 @@ import errorIcon from '../assets/img/close-circle-icon.svg';
 import almostIcon from '../assets/img/help-circle-icon.svg';
 import zapIcon from '../assets/img/checkmark-circle-icon.svg';
 import turnCard from '../assets/img/setinha.png';
-import { useState } from 'react';
 import Actions from './Actions';
 
 export default function DeckMain(props) {
-	const { deck, setDeck, cardsDone, setCardsDone, zappedCards, setZappedCards } = props;
-	const [clickedCard, setClickedCard] = useState('');
-	const [answer, setAnswer] = useState('');
+	const {
+		deck,
+		cardsDone,
+		setCardsDone,
+		zappedCards,
+		setZappedCards,
+		clickedCard,
+		setClickedCard,
+		answer,
+		setAnswer,
+	} = props;
 
 	function flashcardStatus(flashcard, status, color) {
-		const newDeck = deck;
 		flashcard.status = status;
 		flashcard.color = color;
 		setClickedCard('');
 		setAnswer('');
-		setDeck(newDeck);
 	}
 
 	function setIcon(status) {

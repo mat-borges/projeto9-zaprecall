@@ -1,7 +1,7 @@
 const INITIALCOLOR =
 	'invert(0%) sepia(98%) saturate(7%) hue-rotate(162deg) brightness(103%) contrast(102%)';
 
-export const recallJS = [
+const recallJS = [
 	{
 		question: 'O que é JSX?',
 		answer: 'Uma extensão de linguagem do JavaScript',
@@ -53,7 +53,7 @@ export const recallJS = [
 	},
 ];
 
-export const recallRandom = [
+const recallRandom = [
 	{
 		question: 'Biscoito ou bolacha?',
 		answer: 'Bolacha... obviamente',

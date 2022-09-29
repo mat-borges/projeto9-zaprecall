@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
 export default function DeckHeader(props) {
-	const { logo, setDisplay, setGoal, setDeck } = props;
+	const { logo, setDisplay, setGoal, setDeck, setClickedCard, setAnswer } = props;
+
 	function homePage() {
 		setDisplay('home');
-		setGoal('');
 		setDeck([]);
+		setGoal('');
+		setClickedCard('');
+		setAnswer('');
 	}
+
 	return (
 		<Header onClick={homePage}>
 			<img src={logo} alt="logoZap" />
