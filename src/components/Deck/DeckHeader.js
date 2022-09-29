@@ -33,7 +33,7 @@ export default function DeckHeader(props) {
 			</h1>
 			<Button onClick={homePage} title="Home Page">
 				<img src={homeIcon} alt="home" />
-				Home Page
+				<p>Home Page</p>
 			</Button>
 		</Header>
 	);
@@ -89,4 +89,15 @@ const Button = styled.button`
 		width: 25px;
 		height: 25px;
 	}
+	@media (max-width: 680px) {
+		position: absolute;
+		width: 40px;
+		img{
+			position: relative;
+			left: 9px
+		}
+		p{
+			display: none;
+		}
+	}(
 `;
