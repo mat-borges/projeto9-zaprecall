@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { options } from '../assets/lists/decks.js';
-import decks from '../assets/lists/decks.js';
+import decks, { options } from '../assets/lists/mock.js';
 
 export default function Home(props) {
 	const { logo, display, setDisplay, goal, setGoal, deck, setDeck } = props;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import DeckFooter from './DeckFooter.js';
+import DeckFooter from './DeckFooter/DeckFooter.js';
 import DeckHeader from './DeckHeader.js';
-import DeckMain from './DeckMain.js';
+import DeckMain from './DeckMain/DeckMain.js';
 import { useState } from 'react';
 
 export default function Deck(props) {
@@ -11,6 +11,7 @@ export default function Deck(props) {
 	const [cardsDone, setCardsDone] = useState(0);
 	const [clickedCard, setClickedCard] = useState('');
 	const [answer, setAnswer] = useState('');
+	const [iconState, setIconState] = useState([]);
 
 	return (
 		<DeckDiv display={display === 'recall' ? 'flex' : 'none'}>
@@ -22,6 +23,9 @@ export default function Deck(props) {
 				setDeck={setDeck}
 				setClickedCard={setClickedCard}
 				setAnswer={setAnswer}
+				setCardsDone={setCardsDone}
+				setZappedCards={setZappedCards}
+				setIconState={setIconState}
 			/>
 			<DeckMain
 				deck={deck}
@@ -33,8 +37,16 @@ export default function Deck(props) {
 				setClickedCard={setClickedCard}
 				answer={answer}
 				setAnswer={setAnswer}
+				iconState={iconState}
+				setIconState={setIconState}
 			/>
-			<DeckFooter deck={deck} cardsDone={cardsDone} goal={goal} zappedCards={zappedCards} />
+			<DeckFooter
+				deck={deck}
+				cardsDone={cardsDone}
+				goal={goal}
+				zappedCards={zappedCards}
+				iconState={iconState}
+			/>
 		</DeckDiv>
 	);
 }

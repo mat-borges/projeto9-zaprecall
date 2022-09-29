@@ -2,15 +2,30 @@ import styled from 'styled-components';
 
 export default function Actions(props) {
 	const {
-		flashcardStatus,
-		flashcard,
+		i,
 		setCardsDone,
 		cardsDone,
 		zappedCards,
 		setZappedCards,
 		setClickedCard,
 		setAnswer,
+		setColor,
+		setStatus,
+		status,
+		iconState,
+		setIconState,
 	} = props;
+
+	function flashcardStatus(newStatus, newColor) {
+		let newIconState = [...iconState];
+		newIconState[i] = newStatus;
+
+		setIconState(newIconState);
+		setStatus(newStatus);
+		setColor(newColor);
+		setClickedCard('');
+		setAnswer('');
+	}
 
 	const ERRORCOLOR =
 		'invert(29%) sepia(86%) saturate(2812%) hue-rotate(342deg) brightness(96%) contrast(106%)';
@@ -19,11 +34,11 @@ export default function Actions(props) {
 	const ZAPCOLOR =
 		'invert(55%) sepia(10%) saturate(3367%) hue-rotate(72deg) brightness(106%) contrast(90%)';
 
-	function buttonClick(flashcard, status, color) {
-		if (flashcard.status === '') {
-			flashcardStatus(flashcard, status, color);
+	function buttonClick(newStatus, newColor) {
+		if (status === '') {
+			flashcardStatus(newStatus, newColor);
 			setCardsDone(cardsDone + 1);
-			if (status === 'zap') {
+			if (newStatus === 'zap') {
 				setZappedCards(zappedCards + 1);
 			}
 		} else {
@@ -34,18 +49,18 @@ export default function Actions(props) {
 	return (
 		<ActionsDiv>
 			<ErrorButton
-				onClick={() => buttonClick(flashcard, 'error', ERRORCOLOR)}
-				display={flashcard.status === '' || flashcard.status === 'error' ? 'flex' : 'none'}>
+				onClick={() => buttonClick('error', ERRORCOLOR)}
+				display={status === '' || status === 'error' ? 'flex' : 'none'}>
 				Não lembrei
 			</ErrorButton>
 			<AlmostButton
-				onClick={() => buttonClick(flashcard, 'almost', ALMOSTCOLOR)}
-				display={flashcard.status === '' || flashcard.status === 'almost' ? 'flex' : 'none'}>
+				onClick={() => buttonClick('almost', ALMOSTCOLOR)}
+				display={status === '' || status === 'almost' ? 'flex' : 'none'}>
 				Quase não lembrei
 			</AlmostButton>
 			<ZapButton
-				onClick={() => buttonClick(flashcard, 'zap', ZAPCOLOR)}
-				display={flashcard.status === '' || flashcard.status === 'zap' ? 'flex' : 'none'}>
+				onClick={() => buttonClick('zap', ZAPCOLOR)}
+				display={status === '' || status === 'zap' ? 'flex' : 'none'}>
 				Zap!
 			</ZapButton>
 		</ActionsDiv>

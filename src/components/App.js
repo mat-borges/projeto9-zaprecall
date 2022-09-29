@@ -2,8 +2,7 @@ import { useState } from 'react';
 import GlobalStyle from '../style/GlobalStyle.js';
 import logoG from '../assets/img/logo.png';
 import Home from './Home.js';
-import Deck from './Deck.js';
-
+import Deck from './Deck/Deck.js';
 
 export default function App() {
 	const [display, setDisplay] = useState('home');
@@ -23,6 +22,7 @@ export default function App() {
 				deck={deck}
 				setDeck={setDeck}
 			/>
+
 			<Deck
 				logo={logoG}
 				display={display}

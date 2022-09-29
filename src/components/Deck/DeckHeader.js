@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 
 export default function DeckHeader(props) {
-	const { logo, setDisplay, setGoal, setDeck, setClickedCard, setAnswer } = props;
+	const {
+		logo,
+		setDisplay,
+		setGoal,
+		setDeck,
+		setClickedCard,
+		setAnswer,
+		setCardsDone,
+		setZappedCards,
+		setIconState,
+	} = props;
 
 	function homePage() {
 		setDisplay('home');
@@ -9,6 +19,9 @@ export default function DeckHeader(props) {
 		setGoal('');
 		setClickedCard('');
 		setAnswer('');
+		setCardsDone(0);
+		setZappedCards(0);
+		setIconState([]);
 	}
 
 	return (
