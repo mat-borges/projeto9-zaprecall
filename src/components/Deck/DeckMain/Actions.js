@@ -17,7 +17,7 @@ export default function Actions(props) {
 	} = props;
 
 	function flashcardStatus(newStatus, newColor) {
-		let newIconState = [...iconState];
+		const newIconState = [...iconState];
 		newIconState[i] = newStatus;
 
 		setIconState(newIconState);
