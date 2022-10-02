@@ -7,9 +7,12 @@ export default function Home(props) {
 	function showGoals() {
 		if (deck[0] === '' || deck[0] === undefined || deck[0] === null) {
 			return (
-				<select defaultValue={[...decks[0]]} onChange={(e) => setDeck([...decks[e.target.value]])}>
+				<select
+					defaultValue=""
+					onChange={(e) => setDeck([...decks[e.target.value]])}
+					data-identifier="deck-selector">
 					{decks.map((e, i) => (
-						<option key={i} value={i}>
+						<option key={i} value={i} identifier="deck-option">
 							{options[i].label}
 						</option>
 					))}
@@ -22,6 +25,7 @@ export default function Home(props) {
 					placeholder="Digite sua meta de zaps..."
 					value={goal}
 					onChange={(e) => setGoal(e.target.value)}
+					data-identifier="goals-input"
 				/>
 			);
 		}
@@ -43,7 +47,8 @@ export default function Home(props) {
 			<button
 				onClick={checkGoals}
 				disabled={goal === '' ? true : false}
-				title={goal === '' ? 'Você precisa inserir uma meta' : 'Iniciar Recall!'}>
+				title={goal === '' ? 'Você precisa inserir uma meta' : 'Iniciar Recall!'}
+				data-identifier="start-btn">
 				Iniciar Recall!!
 			</button>
 		</HomeDiv>

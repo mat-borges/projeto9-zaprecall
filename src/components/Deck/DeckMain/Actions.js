@@ -50,17 +50,20 @@ export default function Actions(props) {
 		<ActionsDiv>
 			<ErrorButton
 				onClick={() => buttonClick('error', ERRORCOLOR)}
-				display={status === '' || status === 'error' ? 'flex' : 'none'}>
+				display={status === '' || status === 'error' ? 'flex' : 'none'}
+				data-identifier="forgot-btn">
 				Não lembrei
 			</ErrorButton>
 			<AlmostButton
 				onClick={() => buttonClick('almost', ALMOSTCOLOR)}
-				display={status === '' || status === 'almost' ? 'flex' : 'none'}>
+				display={status === '' || status === 'almost' ? 'flex' : 'none'}
+				data-identifier="almost-forgot-btn">
 				Quase não lembrei
 			</AlmostButton>
 			<ZapButton
 				onClick={() => buttonClick('zap', ZAPCOLOR)}
-				display={status === '' || status === 'zap' ? 'flex' : 'none'}>
+				display={status === '' || status === 'zap' ? 'flex' : 'none'}
+				data-identifier="zap-btn">
 				Zap!
 			</ZapButton>
 		</ActionsDiv>

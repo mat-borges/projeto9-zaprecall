@@ -25,26 +25,37 @@ export default function ShowFlashcard(props) {
 
 	if (clickedCard !== i) {
 		return (
-			<Flashcard key={i} onClick={() => setClickedCard(i)}>
-				<QuestionId color={color} decoration={status !== '' ? 'line-through' : 'none'}>
+			<Flashcard
+				key={i}
+				onClick={() => setClickedCard(i)}
+				data-identifier="flashcard flashcard-show-btn">
+				<QuestionId
+					color={color}
+					decoration={status !== '' ? 'line-through' : 'none'}
+					data-identifier="flashcard-index-item">
 					Pergunta {i + 1}
 				</QuestionId>
-				<Icon src={setIcon(status)} alt="" color={color} />
+				<Icon src={setIcon(status)} alt="" color={color} data-identifier="flashcard-status" />
 			</Flashcard>
 		);
 	} else if (clickedCard === i && answer !== i) {
 		return (
 			<FlashcardAberto key={i}>
-				<p>{flashcard.question}</p>
+				<p data-identifier="flashcard-question">{flashcard.question}</p>
 				<div>
-					<img src={turnCard} alt="" onClick={() => setAnswer(i)} />
+					<img
+						src={turnCard}
+						alt=""
+						onClick={() => setAnswer(i)}
+						data-identifier="flashcard-turn-btn"
+					/>
 				</div>
 			</FlashcardAberto>
 		);
 	} else if (clickedCard === i && answer === i) {
 		return (
 			<FlashcardAberto key={i}>
-				<p>{flashcard.answer}</p>
+				<p data-identifier="flashcard-answer">{flashcard.answer}</p>
 				<Actions
 					i={i}
 					flashcard={flashcard}

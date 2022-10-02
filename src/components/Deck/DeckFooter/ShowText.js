@@ -9,7 +9,7 @@ export default function ShowText(props) {
 		if (zappedCards >= goal) {
 			return (
 				<Texto>
-					<div>
+					<div data-identifier="flashcard-counter">
 						{cardsDone}/{deck.length} Concluidos || Meta: {zappedCards >= goal ? goal : zappedCards}
 						/{goal}
 					</div>
@@ -22,7 +22,7 @@ export default function ShowText(props) {
 		} else {
 			return (
 				<Texto>
-					<div>
+					<div data-identifier="flashcard-counter">
 						{cardsDone}/{deck.length} Concluidos || Meta: {zappedCards >= goal ? goal : zappedCards}
 						/{goal}
 					</div>
@@ -35,7 +35,7 @@ export default function ShowText(props) {
 		}
 	} else {
 		return (
-			<Texto>
+			<Texto data-identifier="flashcard-counter">
 				{cardsDone}/{deck.length} Concluidos || Meta: {zappedCards >= goal ? goal : zappedCards}/
 				{goal}
 				<img src={zappedCards >= goal ? happy : ''} alt="" />
