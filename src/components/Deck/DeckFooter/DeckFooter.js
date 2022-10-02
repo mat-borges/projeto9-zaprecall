@@ -35,5 +35,5 @@ const Footer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	gap: 20px;
+	gap: 10px;
 `;

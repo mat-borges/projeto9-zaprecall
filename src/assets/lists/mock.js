@@ -69,7 +69,27 @@ const recallRandom = [
 	},
 ];
 
-const decks = [[''], recallJS, recallRandom];
-export const options = [{ label: '' }, { label: 'recallJS' }, { label: 'recallRandom' }];
+const testDeck = [
+	{
+		question: 'Isso é um flashcard?',
+		answer: 'Sim',
+	},
+	{
+		question: 'E isso? é Um flashcard?',
+		answer: 'Talvez',
+	},
+	{
+		question: 'Esse é o último flashcard?',
+		answer: 'Sim, e eu claramente errei o conceito de recall, acontece',
+	},
+];
+
+const decks = [[''], recallJS, recallRandom, testDeck];
+export const options = [
+	{ label: '' },
+	{ label: 'recallJS' },
+	{ label: 'recallRandom' },
+	{ label: 'testDeck' },
+];
 
 export default decks;

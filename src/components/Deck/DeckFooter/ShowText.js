@@ -51,8 +51,10 @@ const Texto = styled.div`
 	align-items: center;
 	div {
 		flex-direction: column;
+		/* margin-top: 10px; */
 	}
 	img {
 		margin-left: 5px;
 	}
+	gap: 10px;
 `;
